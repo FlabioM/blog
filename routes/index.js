@@ -6,8 +6,8 @@ const userController = require('../controllers/userController');
 const ensureUserAuthenticated = require('../middleware/ensureUserAuthenticated.js');
 const userHasRole = require('../middleware/userHasRole');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function(req, res){
+  res.redirect('/article');
 });
 router.get('article/add', ensureUserAuthenticated, userHasRole, articleController.renderAddForm);
 router.post('/article/add', ensureUserAuthenticated, userHasRole, articleController.addArticle);
