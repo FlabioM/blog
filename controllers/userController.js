@@ -23,7 +23,7 @@ module.exports.renderLogin = function(req, res){
     res.render('user/login');
 }
 
-module.exports.login = passport.autheticate('local', {
+module.exports.login = passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureMessage: true

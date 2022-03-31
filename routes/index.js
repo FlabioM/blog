@@ -29,7 +29,7 @@ router.post('/login', userController.login);
 router.get('/logout', userController.logout);
 
 
-router.get('/comment/:commentId/delete', commentController.deleteComment);
-router.get('/comment/:commentId/reply/:replyId/delete', commentController.deleteReply);
+router.get('/comment/:commentId/delete', ensureUserAuthenticated, userHasRole, commentController.deleteComment);
+router.get('/comment/:commentId/reply/:replyId/delete', ensureUserAuthenticated, userHasRole, commentController.deleteReply);
 
 module.exports = router;
